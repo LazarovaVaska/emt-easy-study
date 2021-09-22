@@ -1,8 +1,8 @@
 package com.finki.emt.sharedkernel.domain.calculations;
 
 import com.finki.emt.sharedkernel.domain.base.ValueObject;
+
 import com.sun.istack.NotNull;
-import com.sun.istack.Nullable;
 import lombok.Getter;
 
 import javax.persistence.Embeddable;
