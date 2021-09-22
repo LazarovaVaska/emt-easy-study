@@ -6,11 +6,14 @@ import com.finki.emt.adcatalog.domain.models.AdId;
 import com.finki.emt.adcatalog.domain.repository.AdRepository;
 import com.finki.emt.adcatalog.services.AdService;
 import com.finki.emt.adcatalog.services.form.AdForm;
+import com.finki.emt.sharedkernel.domain.calculations.Currency;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -25,7 +28,7 @@ public class AdServiceImpl implements AdService {
 
     @Override
     public Ad createAd(AdForm adForm) {
-        Ad ad = Ad.build(adForm.getAdName(),adForm.getPrice());
+        Ad ad = Ad.build(adForm.getAdName(), adForm.getPrice());
         adRepository.save(ad);
         return ad;
     }
@@ -45,5 +48,10 @@ public class AdServiceImpl implements AdService {
     @Override
     public List<Ad> getAll() {
         return adRepository.findAll();
+    }
+
+    @Override
+    public List<String> getAllCurrencies() {
+        return Arrays.stream(Currency.values()).map(Enum::name).collect(Collectors.toList());
     }
 }

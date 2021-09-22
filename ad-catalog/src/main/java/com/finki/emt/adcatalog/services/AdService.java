@@ -8,8 +8,14 @@ import java.util.List;
 
 public interface AdService {
     Ad findById(AdId adId);
+
     Ad createAd(AdForm adForm);
+
     Ad subscriptionItemCreated(AdId adId);
+
     Ad subscriptionItemRemoved(AdId adId);
+
     List<Ad> getAll();
+
+    List<String> getAllCurrencies();
 }

@@ -36,4 +36,9 @@ public class AdResource {
         return adService.subscriptionItemCreated(AdId.of(id));
     }
 
+    @GetMapping("/currencies")
+    public List<String > getAllCurrencies() {
+        return adService.getAllCurrencies();
+    }
+
 }
